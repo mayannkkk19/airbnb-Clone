@@ -1,13 +1,19 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-  </head>
-  <body>
-    <h1>Welcome to home</h1>
-    <a href="/admin/add-home">Add Home</a>
-    <a href="/store/view-home">View Home</a>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+</head>
+
+<body>
+  <%- include('../partials/nav') %>
+    <div class="mainContent" style="margin-top: 66px;">
+      <h1>Welcome to home</h1>
+      <a href="/admin/add-home">Add Home</a>
+      <a href="/store/view-homes">View Home</a>
+    </div>
+</body>
+
 </html>

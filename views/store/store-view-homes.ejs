@@ -6,13 +6,16 @@
     <title>View Home</title>
   </head>
   <body>
-    <%if(homes.length === 0) {%>
+    <%- include('../partials/nav') %>
+    <div class="mainContent" style="margin-top: 66px;">
+      <%if(homes.length === 0) {%>
       <h1>No houses are listed currently</h1>
       <h2>We need time to be available</h2>
       <h3>Thanks for your patience!</h3>
-    <%} else {%>
-      <%- include('./homeList', {homes}) %>
-    <%}%>
-    <a href="/">Back to home</a>
+      <%} else {%>
+        <%- include('./homeList', {homes}) %>
+      <%}%>
+      <a href="/">Back to home</a>
+    </div>
   </body>
 </html>
