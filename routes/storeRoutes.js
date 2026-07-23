@@ -3,9 +3,9 @@ const path = require('path');
 const express = require("express");
 const storeRouter = express.Router();
 
-const {getHomes, getFavList, getReserve, getBookings} = require('../controllers/homes');
+const {getStoreHomes, getFavList, getReserve, getBookings} = require('../controllers/storeController');
 
-storeRouter.get('/view-home', getHomes);
+storeRouter.get('/view-homes', getStoreHomes);
 
 storeRouter.get('/favourite', getFavList);
 
