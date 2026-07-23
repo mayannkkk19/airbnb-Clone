@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Home</title>
+  </head>
+  <body>
+    <%- include('../partials/nav') %>
+    <div class="mainContent" style="margin-top: 66px;">
+      <%if(homes.length === 0) {%>
+      <h1>No houses are listed currently</h1>
+      <h2>We need time to be available</h2>
+      <h3>Thanks for your patience!</h3>
+      <%} else {%>
+        <%- include('./homeList', {homes}) %>
+      <%}%>
+      <a href="/">Back to home</a>
+    </div>
+  </body>
+</html>
