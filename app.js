@@ -25,7 +25,7 @@ app.use((req, res, next)  => {
 
 app.use(express.urlencoded());
 
-//home
+
 app.use(homeRouter);
 app.use('/store', storeRouter);
 app.use('/admin', adminRouter);
