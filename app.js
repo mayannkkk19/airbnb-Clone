@@ -32,6 +32,7 @@ app.use('/admin', adminRouter);
 
 app.use((req, res, next) => {
     console.log("Last middleware");
+    next();
 })
 
 app.use(pageNotFound);
