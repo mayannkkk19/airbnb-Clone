@@ -3,6 +3,8 @@ const path = require("path");
 
 const rootDir = require("../utils/pathUtil");
 
+const homeDataPath = path.join(rootDir, "data", "homes.json");
+
 module.exports = class Home {
   constructor(houseName, pricePerNight, location, rating) {
     this.houseName = houseName;
@@ -15,7 +17,7 @@ module.exports = class Home {
     this.id = Math.random().toString();
     Home.fetchAll((homes) => {
       homes.push(this);
-      const homeDataPath = path.join(rootDir, "data", "homes.json");
+
       fs.writeFile(homeDataPath, JSON.stringify(homes), (error) => {
         console.log("File writing concluded: ", error);
       });
@@ -24,7 +26,7 @@ module.exports = class Home {
 
   //this method is related to class only...
   static fetchAll(callback) {
-    const homeDataPath = path.join(rootDir, "data", "homes.json");
+    
     fs.readFile(homeDataPath, (err, data) => {
       if (!err) {
         callback(JSON.parse(data));
