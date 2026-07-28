@@ -22,3 +22,11 @@ exports.getReserve = (req, res, next) => {
 exports.getBookings = (req, res, next) => {
   res.render('store/bookings');
 }
+
+exports.getHomeDetails = (req, res, next) => {
+  const homeId = req.params.homeId;
+  Home.findById(homeId, (home) => {
+    console.log(home);
+    res.render('store/homeDetails', {home});
+  })
+}
