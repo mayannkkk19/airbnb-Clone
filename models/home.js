@@ -36,4 +36,11 @@ module.exports = class Home {
     });
     console.log("Callback ran already!");
   }
-};
+
+  static findById (homeId, callback) {
+    this.fetchAll(homes => {
+      const homeFound = homes.find((home) => home.id === homeId);
+      callback(homeFound);
+    })
+  }
+}; 
