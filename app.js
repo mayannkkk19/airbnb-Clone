@@ -1,9 +1,7 @@
 //core module
 const path = require('path');
-
 //external module
 const express = require("express");
-
 //local modules
 const {homeRouter} = require('./routes/homeRoutes');
 const {storeRouter} = require('./routes/storeRoutes');
@@ -11,7 +9,7 @@ const {adminRouter} = require('./routes/adminRoutes');
 
 const {pageNotFound} = require('./controllers/errors');
 
-const PORT = 6001;
+const PORT = 8080;
 
 const app = express();
 app.set('view engine', 'ejs');
