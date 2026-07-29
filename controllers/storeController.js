@@ -26,7 +26,12 @@ exports.getBookings = (req, res, next) => {
 exports.getHomeDetails = (req, res, next) => {
   const homeId = req.params.homeId;
   Home.findById(homeId, (home) => {
-    console.log(home);
-    res.render('store/homeDetails', {home});
+    if(!home) {
+      console.log('Home not found!');
+      res.redirect("/");
+    }else{
+      console.log(home);
+      res.render('store/homeDetails', {home});
+    }
   })
 }
