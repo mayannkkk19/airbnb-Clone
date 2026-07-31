@@ -26,7 +26,6 @@ module.exports = class Home {
 
   //this method is related to class only...
   static fetchAll(callback) {
-    
     fs.readFile(homeDataPath, (err, data) => {
       if (!err) {
         callback(JSON.parse(data));
