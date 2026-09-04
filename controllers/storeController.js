@@ -6,7 +6,6 @@ exports.getHomePage = (req, res, next) => {
 
 exports.getStoreHomes = (req, res, next) => {
     const homes = Home.fetchAll((homes) => {
-      console.log('Inside callback!');
       res.render('store/store-view-homes', {homes});
     });
 }
