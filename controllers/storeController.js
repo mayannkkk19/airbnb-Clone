@@ -1,4 +1,5 @@
 const Home = require('../models/home');
+const Favourite = require('../models/favourites');
 
 exports.getHomePage = (req, res, next) => {
   res.render('store/homePage');
@@ -11,7 +12,20 @@ exports.getStoreHomes = (req, res, next) => {
 }
 
 exports.getFavList = (req, res, next) => {
-  res.render('store/favouriteList');
+  Favourite.getFavList((favourites) => {
+    Home.fetchAll ((homes) => {
+      const favsWithDetails = homes.filter(home =>  favourites.includes(home.id));
+      
+      console.log(favsWithDetails);
+      res.render('store/store-view-favs', {favsWithDetails});
+    });
+  });
+}
+
+exports.postFavHome = (req, res, next) => {
+  Favourite.addFavHome(req.body.homeID, () => {
+    console.log('Home added to fav');
+  })
 }
 
 exports.getReserve = (req, res, next) => {
