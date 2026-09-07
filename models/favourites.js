@@ -19,6 +19,10 @@ module.exports = class Favourite {
 
   static addFavHome(homeID, callback) {
     Favourite.getFavList((favourites) => {
+      if(favourites.includes(homeID)) {
+        console.log("Home already marked favourite!");
+        return;
+      }
       favourites.push(homeID);
       fs.writeFile(favDataPath, JSON.stringify(favourites), (error) => {
         console.log("File writing concluded: ", error);
